@@ -5,7 +5,7 @@ import { About, Blog, Contact, Home, Listing, Pages } from "../Menu";
 const Header1 = () => {
   return (
     <header className="header-area header-area-one d-none d-xl-block">
-      <div className="header-top">
+      {/* <div className="header-top">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-4">
@@ -84,7 +84,7 @@ const Header1 = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="header-navigation">
         <div className="container-fluid">
           <div className="primary-menu">
