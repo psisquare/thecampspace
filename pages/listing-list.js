@@ -1,28 +1,45 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PageBanner from "../src/components/PageBanner";
 // import RangeSlider from "../src/components/RangeSlider";
 import Layout from "../src/layouts/Layout";
+import ListItem from "../src/components/ListItem";
 
 const RangeSlider = dynamic(() => import("../src/components/RangeSlider"), {
   ssr: false,
 });
 
 const ListingList = () => {
+  const [camp, setCamp] = useState({})
+  const [campList, setCampList] = useState([])
+  const [isLoading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setLoading(true)
+    fetch('https://f3260c34-0ede-4f1d-a297-81411bbb633b.mock.pstmn.io/camp')
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        setCampList(data)
+        setLoading(false)
+      })
+  }, [])
+
   return (
     <Layout>
-      <PageBanner title={"List Layout"} />
+      {/* <PageBanner title={"List Layout"} /> */}
       <section className="listing-list-area pt-120 pb-90">
         <div className="container">
           <div className="row">
+            {/* start of filter search panel column */}
             <div className="col-lg-4">
               <div className="sidebar-widget-area">
                 <div className="widget search-listing-widget mb-30 wow fadeInUp">
                   <h4 className="widget-title">Filter Search</h4>
                   <form onSubmit={(e) => e.preventDefault()}>
                     <div className="search-form">
-                      <div className="form_group">
+                      {/* <div className="form_group">
                         <input
                           type="search"
                           className="form_control"
@@ -31,97 +48,35 @@ const ListingList = () => {
                           required=""
                         />
                         <i className="ti-search" />
-                      </div>
-                      <div className="form_group">
-                        <select className="wide">
-                          <option disabled selected="Category">
-                            Category
-                          </option>
-                          <option value={1}>Museums</option>
-                          <option value={2}>Restaurant</option>
-                          <option value={3}>Party Center</option>
-                          <option value={4}>Fitness Zone</option>
-                          <option value={5}>Game Field</option>
-                          <option value={6}>Job &amp; Feeds</option>
-                          <option value={7}>Shooping</option>
-                          <option value={8}>Art Gallery</option>
-                        </select>
-                      </div>
-                      <div className="form_group">
-                        <select className="wide">
-                          <option disabled selected="Location">
-                            Location
-                          </option>
-                          <option value={1}>Dhaka</option>
-                          <option value={2}>Delhi</option>
-                          <option value={3}>lahore</option>
-                          <option value={4}>Rome</option>
-                          <option value={5}>New york</option>
-                          <option value={6}>Pris</option>
-                          <option value={7}>Bern</option>
-                          <option value={8}>Bangkok</option>
-                        </select>
-                      </div>
-                      <div className="form_group">
-                        <select className="wide">
-                          <option disabled selected="By Country">
-                            By Country
-                          </option>
-                          <option value={1}>Bangladesh</option>
-                          <option value={2}>India</option>
-                          <option value={3}>Pakistan</option>
-                          <option value={4}>Italy</option>
-                          <option value={5}>America</option>
-                          <option value={6}>London</option>
-                          <option value={7}>Swizerland</option>
-                          <option value={8}>Thailand</option>
-                        </select>
-                      </div>
+                      </div> */}
                       <div className="form_group">
                         <select className="wide">
                           <option disabled selected="By place">
-                            By place
+                            ประเภทลานกางเต๊นท์
                           </option>
-                          <option value={1}>Dhaka</option>
-                          <option value={2}>Delhi</option>
-                          <option value={3}>lahore</option>
-                          <option value={4}>Rome</option>
-                          <option value={5}>New york</option>
-                          <option value={6}>Pris</option>
-                          <option value={7}>Bern</option>
-                          <option value={8}>Bangkok</option>
+                          <option value={1}>ลานเอกชน</option>
+                          <option value={2}>อุทยานแห่งชาติ</option>
                         </select>
                       </div>
-                    </div>
-                    <div className="price-range-widget">
-                      <h4 className="widget-title">Around Distance: 50 km</h4>
-                      <div id="slider-range" className="mb-20" />
-                      <div className="price-number">
-                        {/* <Nouislider
-                          range={{ min: 0, max: 100 }}
-                          start={[20, 80]}
-                          connect
-                        /> */}
-                        <RangeSlider />
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
+                        <label class="form-check-label" for="flexCheckDefault">
+                          สัตว์เลี้ยงเข้าได้
+                        </label>
                       </div>
-
-                      <select className="wide">
-                        <option disabled selected="Default price">
-                          Default price
-                        </option>
-                        <option value={1}>$10-$30</option>
-                        <option value={2}>$30-$70</option>
-                        <option value={3}>$70-$100</option>
-                        <option value={4}>$100-$130</option>
-                        <option value={5}>$130-$150</option>
-                      </select>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
+                        <label class="form-check-label" for="flexCheckDefault">
+                          มีไดร์เป่าผม
+                        </label>
+                      </div>
                     </div>
                     <div className="form_group">
                       <button className="main-btn icon-btn">Search Now</button>
                     </div>
                   </form>
                 </div>
-                <div className="widget newsletter-widget mb-30 wow fadeInUp">
+                {/* <div className="widget newsletter-widget mb-30 wow fadeInUp">
                   <div
                     className="newsletter-widget-wrap bg_cover"
                     style={{
@@ -133,11 +88,15 @@ const ListingList = () => {
                     <h3>Subscribe Our Newsletter</h3>
                     <button className="main-btn icon-btn">Subscribe</button>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
+            {/* end of filter search panel column */}
+            {/* start of search listing panel column */}
             <div className="col-lg-8">
-              <div className="listing-search-filter mb-40">
+              {/* start of no results/sort options/ view option   */}
+              {/* <div className="listing-search-filter mb-40">
+                
                 <div className="row">
                   <div className="col-md-8">
                     <div className="filter-left d-flex align-items-center">
@@ -179,150 +138,13 @@ const ListingList = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
+              {/* end of no results/sort options/ view option */}
               <div className="listing-list-wrapper">
-                <div className="listing-item listing-list-item-two mb-60 wow fadeInUp">
-                  <div className="listing-thumbnail">
-                    <img
-                      src="assets/images/listing/listing-list-5.jpg"
-                      alt="listing Image"
-                    />
-                    <div className="thumbnail-meta d-flex justify-content-between align-items-center">
-                      <div className="meta-icon-title d-flex align-items-center">
-                        <div className="icon">
-                          <i className="flaticon-government" />
-                        </div>
-                        <div className="title">
-                          <h6>Art Gallery</h6>
-                        </div>
-                      </div>
-                      <span className="status st-open">Open</span>
-                    </div>
-                  </div>
-                  <div className="listing-content">
-                    <h3 className="title">
-                      <Link href="/listing-details-1">
-                        <a>National Art</a>
-                      </Link>
-                    </h3>
-                    <div className="ratings">
-                      <ul className="ratings ratings-three">
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li>
-                          <span>
-                            <a href="#">(02 Reviews)</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="price">$05.00 - $80.00</span>
-                    <span className="phone-meta">
-                      <i className="ti-tablet" />
-                      <a href="tel:+982653652-05">+98 (265) 3652 - 05</a>
-                    </span>
-                    <div className="listing-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <i className="ti-location-pin" />
-                            California, USA
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="ti-heart" />
-                            <a href="#">Save</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className="listing-item listing-list-item-two mb-60 wow fadeInUp">
-                  <div className="listing-thumbnail">
-                    <img
-                      src="assets/images/listing/listing-list-6.jpg"
-                      alt="listing Image"
-                    />
-                    <div className="thumbnail-meta d-flex justify-content-between align-items-center">
-                      <div className="meta-icon-title d-flex align-items-center">
-                        <div className="icon">
-                          <i className="flaticon-chef" />
-                        </div>
-                        <div className="title">
-                          <h6>Restaurant</h6>
-                        </div>
-                      </div>
-                      <span className="status st-open">Open</span>
-                    </div>
-                  </div>
-                  <div className="listing-content">
-                    <h3 className="title">
-                      <Link href="/listing-details-1">
-                        <a>Food Corner</a>
-                      </Link>
-                    </h3>
-                    <div className="ratings">
-                      <ul className="ratings ratings-three">
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li>
-                          <span>
-                            <a href="#">(02 Reviews)</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="price">$05.00 - $80.00</span>
-                    <span className="phone-meta">
-                      <i className="ti-tablet" />
-                      <a href="tel:+982653652-05">+98 (265) 3652 - 05</a>
-                    </span>
-                    <div className="listing-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <i className="ti-location-pin" />
-                            California, USA
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="ti-heart" />
-                            <a href="#">Save</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+                {campList.map((camp) => {
+                  <ListItem camp={camp}></ListItem>  
+                })}
+                {/* <ListItem camp={camp}></ListItem> */}
                 <div className="listing-item listing-list-item-two mb-60 wow fadeInUp">
                   <div className="listing-thumbnail">
                     <img
@@ -343,7 +165,7 @@ const ListingList = () => {
                   </div>
                   <div className="listing-content">
                     <h3 className="title">
-                      <Link href="/listing-details-1">
+                      <Link href="/listing-details">
                         <a>Central History</a>
                       </Link>
                     </h3>
@@ -414,7 +236,7 @@ const ListingList = () => {
                   </div>
                   <div className="listing-content">
                     <h3 className="title">
-                      <Link href="/listing-details-1">
+                      <Link href="/listing-details">
                         <a>Xtream Gym</a>
                       </Link>
                     </h3>
@@ -485,7 +307,7 @@ const ListingList = () => {
                   </div>
                   <div className="listing-content">
                     <h3 className="title">
-                      <Link href="/listing-details-1">
+                      <Link href="/listing-details">
                         <a>Mega Agency</a>
                       </Link>
                     </h3>
@@ -556,7 +378,7 @@ const ListingList = () => {
                   </div>
                   <div className="listing-content">
                     <h3 className="title">
-                      <Link href="/listing-details-1">
+                      <Link href="/listing-details">
                         <a>Central Plaza</a>
                       </Link>
                     </h3>
@@ -609,6 +431,7 @@ const ListingList = () => {
                 </div>
               </div>
             </div>
+            {/* start of search listing panel column */}
           </div>
         </div>
       </section>

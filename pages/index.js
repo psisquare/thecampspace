@@ -52,11 +52,16 @@ const Index = () => {
                           </div>
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-12">
-                          <div className="form_group">
+                          {/* <div className="form_group">
                             <button className="main-btn icon-btn">
                               ค้นหา
                             </button>
-                          </div>
+                          </div> */}
+                          <Link href="/listing-list">
+                            <button className="main-btn icon-btn">
+                              ค้นหา
+                            </button>
+                          </Link>
                         </div>
                       </div>
                     </form>

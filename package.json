@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bootstrap-icons": "^1.10.3",
     "isotope-layout": "^3.0.6",
     "next": "12.1.0",
     "nouislider-react": "^3.4.1",

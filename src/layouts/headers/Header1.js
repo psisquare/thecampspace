@@ -148,13 +148,15 @@ const Header1 = () => {
               <div className="col-lg-4 col-5">
                 <div className="header-right-nav">
                   <ul className="d-flex align-items-center">
-                    <li className="user-btn">
+                    {/* start of profile btn */}
+                    {/* <li className="user-btn">
                       <Link href="/">
                         <a className="icon">
                           <i className="flaticon-avatar"></i>
                         </a>
                       </Link>
-                    </li>
+                    </li> */}
+                    {/* end of profile btn */}
                     <li className="hero-nav-btn">
                       <Link href="/add-listing">
                         <a className="main-btn icon-btn">Add Listing</a>
