@@ -58,15 +58,15 @@ const ListingList = () => {
                           <option value={2}>อุทยานแห่งชาติ</option>
                         </select>
                       </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                        <label class="form-check-label" for="flexCheckDefault">
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
                           สัตว์เลี้ยงเข้าได้
                         </label>
                       </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                        <label class="form-check-label" for="flexCheckDefault">
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
                           มีไดร์เป่าผม
                         </label>
                       </div>

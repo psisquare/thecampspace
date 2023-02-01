@@ -22,15 +22,15 @@ const Index = () => {
             <div className="row">
               <div className="col-lg-8">
                 <div className="hero-content">
-                  <h1 className="wow fadeInUp" wow-data-delay="30mss">
+                  <h1 className="wow fadeInUp" data-wow-delay="30mss">
                     Discover your next campsite !
                   </h1>
-                  <h3 className="wow fadeInDown" wow-data-delay="50ms">
+                  <h3 className="wow fadeInDown" data-wow-delay="50ms">
                     People Don’t Take,Camps Take People
                   </h3>
                   <div
                     className="hero-search-wrapper wow fadeInUp"
-                    wow-data-delay="70ms"
+                    data-wow-delay="70ms"
                   >
                     <form onSubmit={(e) => e.preventDefault()}>
                       <div className="row">

@@ -4,5 +4,11 @@
     "files": [
       "static/chunks/node_modules_next_dist_pages__error_js.js"
     ]
+  },
+  "listing-list.js -> ../src/components/RangeSlider": {
+    "id": "listing-list.js -> ../src/components/RangeSlider",
+    "files": [
+      "static/chunks/src_components_RangeSlider_js.js"
+    ]
   }
 }
