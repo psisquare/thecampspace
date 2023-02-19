@@ -1,12 +1,13 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { Accordion } from "react-bootstrap";
+import Highlight from "../src/components/highlight/Highlight";
 import ListingDetailsRight from "../src/components/ListingDetailsRight";
 import RatingReview from "../src/components/RatingReview";
 import Layout from "../src/layouts/Layout";
 
 const ListingDetails1 = ({ data }) => {
-  const camp = {
+  const _camp = {
     name: 'Chonburi Mountain Camp',
     description: "🔰ระเบียบของลาน แบบที่พัก รายละเอียดก่อนตัดสินใจจองค่ะ ➡️ ที่พักเราจะมี 2 แบบ⛺ นำเต๊นท์มาเอง 250 บาท/ท่าน ทุกวันเสาร์ทางลานจะมีดนตรีโฟล์คซอง",
     no_of_reviews: 25,
@@ -28,12 +29,20 @@ const ListingDetails1 = ({ data }) => {
       true_available: true,
       dtac_available: true
     },
+    highlights: ['gender_specific_bathroom', 
+      'dryer_available',
+      'dryer_available',
+      'dryer_available',
+      'dryer_available',
+      'dryer_available',
+      'car_camp_space_available'],
     price: 250,
     price_unit: 'ต่อคน',
     price_remark: '',
     rules: '',
     advance_booking_required: true
   }
+  const [camp, setCamp] = useState(_camp)
   const [accordionActive, setAccordionActive] = useState("collapseOne");
   const setAccordion = (value) => (value === accordionActive ? "" : value),
     activeAccortion = (value) => (value === accordionActive ? true : false);
@@ -118,13 +127,13 @@ const ListingDetails1 = ({ data }) => {
                   <p>
                     {camp.description}
                   </p>
-                  {/* <p className="para">
-                    Eros senectus etiam sed habitasse arcu habitant nulla nam
-                    amet sociis leo suspendisse in dignissim litora venenatis
-                    torquent tempor dapibus ridiculus consectetuer nece sagittis{" "}
-                  </p> */}
                 </div>
-                <div className="listing-features-box mb-50 wow fadeInUp">
+                {/* start of hilight */}
+                <Highlight highlights={camp.highlights}></Highlight>
+                
+                {/* end of hilight */}
+                {/* start of facilities */}
+                {/* <div className="listing-features-box mb-50 wow fadeInUp">
                   <h4 className="title">สิ่งอำนวยความสะดวก</h4>
                   <div className="row">
                     <div className="col-lg-4 col-md-6 col-sm-12">
@@ -188,7 +197,8 @@ const ListingDetails1 = ({ data }) => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
+                {/* end of facilities */}
                 <div className="listing-gallery-box wow fadeInUp">
                   <h4 className="title">บรรยากาศ</h4>
                   <div className="row">
