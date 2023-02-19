@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { Accordion } from "react-bootstrap";
+import CampGallery from "../src/components/highlight/CampGallery";
 import Highlight from "../src/components/highlight/Highlight";
 import ListingDetailsRight from "../src/components/ListingDetailsRight";
 import RatingReview from "../src/components/RatingReview";
@@ -36,6 +37,15 @@ const ListingDetails1 = ({ data }) => {
       'dryer_available',
       'dryer_available',
       'car_camp_space_available'],
+    images: [
+      'assets/images/listing/scott-goodwill-y8Ngwq34_Ak-unsplash.jpg',
+      'assets/images/listing/scott-goodwill-y8Ngwq34_Ak-unsplash.jpg',
+      'assets/images/listing/scott-goodwill-y8Ngwq34_Ak-unsplash.jpg',
+      'assets/images/listing/scott-goodwill-y8Ngwq34_Ak-unsplash.jpg',
+      'assets/images/listing/gallery-3.jpg',
+      'assets/images/listing/gallery-3.jpg',
+      'assets/images/listing/gallery-3.jpg',
+    ],
     price: 250,
     price_unit: 'ต่อคน',
     price_remark: '',
@@ -130,7 +140,6 @@ const ListingDetails1 = ({ data }) => {
                 </div>
                 {/* start of hilight */}
                 <Highlight highlights={camp.highlights}></Highlight>
-                
                 {/* end of hilight */}
                 {/* start of facilities */}
                 {/* <div className="listing-features-box mb-50 wow fadeInUp">
@@ -199,63 +208,9 @@ const ListingDetails1 = ({ data }) => {
                   </div>
                 </div> */}
                 {/* end of facilities */}
-                <div className="listing-gallery-box wow fadeInUp">
-                  <h4 className="title">บรรยากาศ</h4>
-                  <div className="row">
-                    <div className="col-md-6 col-sm-12">
-                      <div className="gallery-item mb-30">
-                        <a
-                          href="assets/images/listing/gallery-1.jpg"
-                          className="img-popup"
-                        >
-                          <img
-                            src="assets/images/listing/gallery-1.jpg"
-                            alt="gallery image"
-                          />
-                        </a>
-                      </div>
-                    </div>
-                    <div className="col-md-6 col-sm-12">
-                      <div className="gallery-item mb-30">
-                        <a
-                          href="assets/images/listing/gallery-2.jpg"
-                          className="img-popup"
-                        >
-                          <img
-                            src="assets/images/listing/gallery-2.jpg"
-                            alt="gallery image"
-                          />
-                        </a>
-                      </div>
-                    </div>
-                    <div className="col-md-6 col-sm-12">
-                      <div className="gallery-item mb-30">
-                        <a
-                          href="assets/images/listing/gallery-3.jpg"
-                          className="img-popup"
-                        >
-                          <img
-                            src="assets/images/listing/gallery-3.jpg"
-                            alt="gallery image"
-                          />
-                        </a>
-                      </div>
-                    </div>
-                    <div className="col-md-6 col-sm-12">
-                      <div className="gallery-item mb-30">
-                        <a
-                          href="assets/images/listing/gallery-4.jpg"
-                          className="img-popup"
-                        >
-                          <img
-                            src="assets/images/listing/gallery-4.jpg"
-                            alt="gallery image"
-                          />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {/* start of images */}
+                <CampGallery images={camp.images}></CampGallery>
+                {/* end of images */}
                 {/* <div className="listing-tag-box mb-50 wow fadeInUp">
                   <h4 className="title">Popular Tag</h4>
                   <a href="#">Delivery</a>
