@@ -11,7 +11,7 @@ const Highlight = ({ highlights = []}) => {
           const { label_th, icon } = highlightConfig[h]
           return (
             
-            <div className="col-lg-4 col-md-6 col-sm-12">
+            <div key={h} className="col-lg-4 col-md-6 col-sm-12">
               <div className="icon-box icon-box-one">
                 <div className="icon">
                   <i className={icon} />

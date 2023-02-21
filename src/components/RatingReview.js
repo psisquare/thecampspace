@@ -2,7 +2,7 @@ const RatingReview = ({ rating }) => {
   const stars=[]
   for(let i=0; i<rating.count; i++){
     stars.push(
-      <li>
+      <li key={i}>
         <i className="flaticon-star-1" />
       </li>
     )
