@@ -1,3 +1,6 @@
+import React, { Fragment, useEffect, useRef, useState } from "react";
+import Link from "next/link";
+
 function CampGallery({ images }) {
   return (
     <div className="listing-gallery-box wow fadeInUp">

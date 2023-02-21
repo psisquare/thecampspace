@@ -7,10 +7,11 @@ import ListingDetailsRight from "../src/components/ListingDetailsRight";
 import RatingReview from "../src/components/RatingReview";
 import Layout from "../src/layouts/Layout";
 
-const ListingDetails1 = ({ data }) => {
+const ListingDetails1 = ({ camp }) => {
+  console.log('|||',camp)
   const _camp = {
     name: 'Chonburi Mountain Camp',
-    description: "🔰ระเบียบของลาน แบบที่พัก รายละเอียดก่อนตัดสินใจจองค่ะ ➡️ ที่พักเราจะมี 2 แบบ⛺ นำเต๊นท์มาเอง 250 บาท/ท่าน ทุกวันเสาร์ทางลานจะมีดนตรีโฟล์คซอง",
+    description: "🔰ระเบียบของลาน แบบที่พัก รายละเอียดก่อนตัดสินใจจองค่ะ ➡️ ที่พักเราจะมี 2 แบบ⛺ นำเต๊นท์มาเอง 250 บาท/ท่าน ทุกวันเสาร์ทางลานจะมีดนตรีโฟล์คซอง 🔰ระเบียบของลาน แบบที่พัก รายละเอียดก่อนตัดสินใจจองค่ะ ➡️ ที่พักเราจะมี 2 แบบ⛺ นำเต๊นท์มาเอง 250 บาท/ท่าน ทุกวันเสาร์ทางลานจะมีดนตรีโฟล์คซอง 🔰ระเบียบของลาน แบบที่พัก รายละเอียดก่อนตัดสินใจจองค่ะ ➡️ ที่พักเราจะมี 2 แบบ⛺ นำเต๊นท์มาเอง 250 บาท/ท่าน ทุกวันเสาร์ทางลานจะมีดนตรีโฟล์คซอง",
     no_of_reviews: 25,
     rating: 3.7,
     subdistrict: 'บางแสน',
@@ -52,7 +53,7 @@ const ListingDetails1 = ({ data }) => {
     rules: '',
     advance_booking_required: true
   }
-  const [camp, setCamp] = useState(_camp)
+  // const [camp, setCamp] = useState(_camp)
   const [accordionActive, setAccordionActive] = useState("collapseOne");
   const setAccordion = (value) => (value === accordionActive ? "" : value),
     activeAccortion = (value) => (value === accordionActive ? true : false);
@@ -211,7 +212,8 @@ const ListingDetails1 = ({ data }) => {
                 {/* start of images */}
                 <CampGallery images={camp.images}></CampGallery>
                 {/* end of images */}
-                {/* <div className="listing-tag-box mb-50 wow fadeInUp">
+                {/* start of tag section */}
+                <div className="listing-tag-box mb-50 wow fadeInUp">
                   <h4 className="title">Popular Tag</h4>
                   <a href="#">Delivery</a>
                   <a href="#">Restaurant</a>
@@ -222,7 +224,9 @@ const ListingDetails1 = ({ data }) => {
                   <a href="#">Kitchen</a>
                   <a href="#">Reservation</a>
                   <a href="#">Travel</a>
-                </div> */}
+                </div>
+                {/* end of tag section */}
+                {/* start of customer review */}
                 {/* <div className="listing-review-box mb-50 wow fadeInUp">
                   <h4 className="title">Customer Review</h4>
                   <ul className="review-list">
@@ -357,6 +361,7 @@ const ListingDetails1 = ({ data }) => {
                     </li>
                   </ul>
                 </div> */}
+                {/* end of customer review */}
                 {/* <div className="listing-review-form mb-30 wow fadeInUp">
                   <div className="row">
                     <div className="col-md-6">
@@ -459,3 +464,15 @@ const ListingDetails1 = ({ data }) => {
   );
 };
 export default ListingDetails1;
+
+export async function getServerSideProps(context) {
+  const { campId } = context.query;
+  console.log('>>>',campId)
+  const res = await fetch(`${process.env.API_URL}/camp/${campId}`);
+  const data = await res.json();
+  return {
+    props: {
+      camp: data,
+    },
+  };
+}

@@ -120,7 +120,8 @@ const ListingDetailsRight = () => {
             </div>
           </div>
         </div>
-        <div className="widget business-hour-widget mb-30 wow fadeInUp">
+        {/* start of business hour block */}
+        {/* <div className="widget business-hour-widget mb-30 wow fadeInUp">
           <h4 className="widget-title">Business Hour</h4>
           <ul className="time-info">
             <li>
@@ -152,7 +153,8 @@ const ListingDetailsRight = () => {
               <span className="time st-close">Close</span>
             </li>
           </ul>
-        </div>
+        </div> */}
+        {/* end of business hour block */}
         <div className="widget newsletter-widget mb-30 wow fadeInUp">
           <div
             className="newsletter-widget-wrap bg_cover"
