@@ -18,12 +18,13 @@ const ListingList = () => {
   useEffect(() => {
     setLoading(true)
     fetch('https://f3260c34-0ede-4f1d-a297-81411bbb633b.mock.pstmn.io/camp')
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data)
+      .then(res => res.json())
+      .then(data => {
+        console.log('%%', data)
         setCampList(data)
         setLoading(false)
       })
+      .catch(error => console.log(error))
   }, [])
 
   return (
@@ -76,19 +77,6 @@ const ListingList = () => {
                     </div>
                   </form>
                 </div>
-                {/* <div className="widget newsletter-widget mb-30 wow fadeInUp">
-                  <div
-                    className="newsletter-widget-wrap bg_cover"
-                    style={{
-                      backgroundImage:
-                        "url(assets/images/newsletter-widget-1.jpg)",
-                    }}
-                  >
-                    <i className="flaticon-email-1" />
-                    <h3>Subscribe Our Newsletter</h3>
-                    <button className="main-btn icon-btn">Subscribe</button>
-                  </div>
-                </div> */}
               </div>
             </div>
             {/* end of filter search panel column */}
@@ -141,297 +129,12 @@ const ListingList = () => {
               </div> */}
               {/* end of no results/sort options/ view option */}
               <div className="listing-list-wrapper">
-                {campList.map((camp) => {
-                  <ListItem camp={camp}></ListItem>  
-                })}
-                {/* <ListItem camp={camp}></ListItem> */}
-                <div className="listing-item listing-list-item-two mb-60 wow fadeInUp">
-                  <div className="listing-thumbnail">
-                    <img
-                      src="assets/images/listing/listing-list-7.jpg"
-                      alt="listing Image"
-                    />
-                    <div className="thumbnail-meta d-flex justify-content-between align-items-center">
-                      <div className="meta-icon-title d-flex align-items-center">
-                        <div className="icon">
-                          <i className="flaticon-government" />
-                        </div>
-                        <div className="title">
-                          <h6>Museums</h6>
-                        </div>
-                      </div>
-                      <span className="status st-open">Open</span>
-                    </div>
-                  </div>
-                  <div className="listing-content">
-                    <h3 className="title">
-                      <Link href="/listing-details">
-                        <a>Central History</a>
-                      </Link>
-                    </h3>
-                    <div className="ratings">
-                      <ul className="ratings ratings-three">
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li>
-                          <span>
-                            <a href="#">(02 Reviews)</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="price">$05.00 - $80.00</span>
-                    <span className="phone-meta">
-                      <i className="ti-tablet" />
-                      <a href="tel:+982653652-05">+98 (265) 3652 - 05</a>
-                    </span>
-                    <div className="listing-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <i className="ti-location-pin" />
-                            California, USA
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="ti-heart" />
-                            <a href="#">Save</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className="listing-item listing-list-item-two mb-60 wow fadeInUp">
-                  <div className="listing-thumbnail">
-                    <img
-                      src="assets/images/listing/listing-list-8.jpg"
-                      alt="listing Image"
-                    />
-                    <div className="thumbnail-meta d-flex justify-content-between align-items-center">
-                      <div className="meta-icon-title d-flex align-items-center">
-                        <div className="icon">
-                          <i className="flaticon-dumbbell" />
-                        </div>
-                        <div className="title">
-                          <h6>Fitness</h6>
-                        </div>
-                      </div>
-                      <span className="status st-open">Open</span>
-                    </div>
-                  </div>
-                  <div className="listing-content">
-                    <h3 className="title">
-                      <Link href="/listing-details">
-                        <a>Xtream Gym</a>
-                      </Link>
-                    </h3>
-                    <div className="ratings">
-                      <ul className="ratings ratings-three">
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li>
-                          <span>
-                            <a href="#">(02 Reviews)</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="price">$05.00 - $80.00</span>
-                    <span className="phone-meta">
-                      <i className="ti-tablet" />
-                      <a href="tel:+982653652-05">+98 (265) 3652 - 05</a>
-                    </span>
-                    <div className="listing-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <i className="ti-location-pin" />
-                            California, USA
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="ti-heart" />
-                            <a href="#">Save</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className="listing-item listing-list-item-two mb-60 wow fadeInUp">
-                  <div className="listing-thumbnail">
-                    <img
-                      src="assets/images/listing/listing-list-9.jpg"
-                      alt="listing Image"
-                    />
-                    <div className="thumbnail-meta d-flex justify-content-between align-items-center">
-                      <div className="meta-icon-title d-flex align-items-center">
-                        <div className="icon">
-                          <i className="flaticon-suitcase" />
-                        </div>
-                        <div className="title">
-                          <h6>Job &amp; Feed</h6>
-                        </div>
-                      </div>
-                      <span className="status st-open">Open</span>
-                    </div>
-                  </div>
-                  <div className="listing-content">
-                    <h3 className="title">
-                      <Link href="/listing-details">
-                        <a>Mega Agency</a>
-                      </Link>
-                    </h3>
-                    <div className="ratings">
-                      <ul className="ratings ratings-three">
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li>
-                          <span>
-                            <a href="#">(02 Reviews)</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="price">$05.00 - $80.00</span>
-                    <span className="phone-meta">
-                      <i className="ti-tablet" />
-                      <a href="tel:+982653652-05">+98 (265) 3652 - 05</a>
-                    </span>
-                    <div className="listing-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <i className="ti-location-pin" />
-                            California, USA
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="ti-heart" />
-                            <a href="#">Save</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className="listing-item listing-list-item-two mb-60 wow fadeInUp">
-                  <div className="listing-thumbnail">
-                    <img
-                      src="assets/images/listing/listing-list-10.jpg"
-                      alt="listing Image"
-                    />
-                    <div className="thumbnail-meta d-flex justify-content-between align-items-center">
-                      <div className="meta-icon-title d-flex align-items-center">
-                        <div className="icon">
-                          <i className="flaticon-shopping" />
-                        </div>
-                        <div className="title">
-                          <h6>Shopping</h6>
-                        </div>
-                      </div>
-                      <span className="status st-open">Open</span>
-                    </div>
-                  </div>
-                  <div className="listing-content">
-                    <h3 className="title">
-                      <Link href="/listing-details">
-                        <a>Central Plaza</a>
-                      </Link>
-                    </h3>
-                    <div className="ratings">
-                      <ul className="ratings ratings-three">
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li className="star">
-                          <i className="flaticon-star-1" />
-                        </li>
-                        <li>
-                          <span>
-                            <a href="#">(02 Reviews)</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="price">$05.00 - $80.00</span>
-                    <span className="phone-meta">
-                      <i className="ti-tablet" />
-                      <a href="tel:+982653652-05">+98 (265) 3652 - 05</a>
-                    </span>
-                    <div className="listing-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <i className="ti-location-pin" />
-                            California, USA
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="ti-heart" />
-                            <a href="#">Save</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+                { campList ? campList.map((camp) =>
+                  <ListItem key={camp.id} camp={camp}></ListItem>
+                ) : <div>loading...</div>}
               </div>
             </div>
-            {/* start of search listing panel column */}
+            {/* end of search listing panel column */}
           </div>
         </div>
       </section>

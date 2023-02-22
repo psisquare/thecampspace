@@ -9,51 +9,6 @@ import Layout from "../src/layouts/Layout";
 
 const ListingDetails1 = ({ camp }) => {
   console.log('|||',camp)
-  const _camp = {
-    name: 'Chonburi Mountain Camp',
-    description: "🔰ระเบียบของลาน แบบที่พัก รายละเอียดก่อนตัดสินใจจองค่ะ ➡️ ที่พักเราจะมี 2 แบบ⛺ นำเต๊นท์มาเอง 250 บาท/ท่าน ทุกวันเสาร์ทางลานจะมีดนตรีโฟล์คซอง 🔰ระเบียบของลาน แบบที่พัก รายละเอียดก่อนตัดสินใจจองค่ะ ➡️ ที่พักเราจะมี 2 แบบ⛺ นำเต๊นท์มาเอง 250 บาท/ท่าน ทุกวันเสาร์ทางลานจะมีดนตรีโฟล์คซอง 🔰ระเบียบของลาน แบบที่พัก รายละเอียดก่อนตัดสินใจจองค่ะ ➡️ ที่พักเราจะมี 2 แบบ⛺ นำเต๊นท์มาเอง 250 บาท/ท่าน ทุกวันเสาร์ทางลานจะมีดนตรีโฟล์คซอง",
-    no_of_reviews: 25,
-    rating: 3.7,
-    subdistrict: 'บางแสน',
-    province: 'ชลบุรี',
-    is_pet_friendly: true,
-    latlong: '',
-    contact_tel: '0819998976',
-    contact_facebook: 'fb.com/cbx',
-    images: [],
-    google_map_link: 'https://www.google.com/maps/place/Chonburi+mountaincamp/@13.3081718,101.0421871,17z/data=!4m6!3m5!1s0x311d35362373b961:0x64e97e0bb1ccfd53!8m2!3d13.3081718!4d101.0443758!16s%2Fg%2F11spqvw047',
-    type: 'ลานเอกชน',
-    facilities: {
-      bathroom_available: true,
-      dryer_available: true,
-      water_heater_available : true,
-      ais_available: true,
-      true_available: true,
-      dtac_available: true
-    },
-    highlights: ['gender_specific_bathroom', 
-      'dryer_available',
-      'dryer_available',
-      'dryer_available',
-      'dryer_available',
-      'dryer_available',
-      'car_camp_space_available'],
-    images: [
-      'assets/images/listing/scott-goodwill-y8Ngwq34_Ak-unsplash.jpg',
-      'assets/images/listing/scott-goodwill-y8Ngwq34_Ak-unsplash.jpg',
-      'assets/images/listing/scott-goodwill-y8Ngwq34_Ak-unsplash.jpg',
-      'assets/images/listing/scott-goodwill-y8Ngwq34_Ak-unsplash.jpg',
-      'assets/images/listing/gallery-3.jpg',
-      'assets/images/listing/gallery-3.jpg',
-      'assets/images/listing/gallery-3.jpg',
-    ],
-    price: 250,
-    price_unit: 'ต่อคน',
-    price_remark: '',
-    rules: '',
-    advance_booking_required: true
-  }
-  // const [camp, setCamp] = useState(_camp)
   const [accordionActive, setAccordionActive] = useState("collapseOne");
   const setAccordion = (value) => (value === accordionActive ? "" : value),
     activeAccortion = (value) => (value === accordionActive ? true : false);
@@ -455,7 +410,7 @@ const ListingDetails1 = ({ camp }) => {
                 </div> */}
               </div>
             </div>
-            <ListingDetailsRight />
+            {/* <ListingDetailsRight /> */}
           </div>
         </div>
       </section>
