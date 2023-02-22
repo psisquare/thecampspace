@@ -66,6 +66,12 @@ const ListItem = ({ camp }) => {
                 {camp.province ? camp.province : '...'}
               </span>
             </li>
+            <li>
+              <span>
+                <i className="ti-heart" />
+                <a href="#">Save</a>
+              </span>
+            </li>
           </ul>
         </div>
       </div>

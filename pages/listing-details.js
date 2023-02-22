@@ -25,7 +25,7 @@ const ListingDetails1 = ({ camp }) => {
                   <div className="info-name d-flex">
                     <div className="thumb">
                       <img
-                        src="assets/images/listing/info-1.jpg"
+                        src={camp.thumbnail_image}
                         alt="thumb image"
                       />
                     </div>
